@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>BMI and CFNc Calculator With</title>
+  <style>
+    /* add a brown background color to the whole page */
+    body {
+      background-color: lightblue;
+    }
+
+    /* add some spacing and center the form */
+    form {
+      padding: 20px;
+      margin: 0 auto;
+      width: 300px;
+      text-align: center;
+    }
+
+    /* style the labels and inputs */
+    label, input {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    /* style the button */
+    button {
+      background-color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    /* style the result text */
+    #result {
+      text-align: center;
+      font-size: 24px;
+      color: white;
+    }
+    #result2 {
+      text-align: center;
+      font-size: 24px;
+      color: white;
+    }
+    #result3 {
+      text-align: center;
+      font-size: 24px;
+      color: white;
+    }
+    #result4 {
+      text-align: center;
+      font-size: 24px;
+      color: white;
+    }
+  </style>
+</head>
+<h1>BMI and CFNc Calculator With</h1>
+<form>
+  <label for="weight">Weight (kg):</label>
+  <input type="text" id="weight" name="weight"><br><br>
+  <label for="height">Height (cm):</label>
+  <input type="text" id="height" name="height"><br><br>
+  <p id="result"></p>
+  <br><br>
+  <button type="button" onclick="calculateBMI();">Calculate</button>
+  <br><br>
+  <label for="dropbox">Select a Unit:</label>
+  <select id="dropbox">
+    ['<option value=0>ไก่-สะโพก(ก)</option>']
+    ['<option value=1>ไก่-หนัง(ก)</option>']
+    ['<option value=2>ไก่-อกติดหนัง(ก)</option>']
+    ['<option value=3>ไข่-ไก่(บ)</option>']
+    ['<option value=4>ไข่-เป็ด(บ)</option>']
+    ['<option value=5>ไข่-เยี่ยวม้า(บ)</option>']
+    ['<option value=6>เต้าหู้ไข่(ห)</option>']
+    ['<option value=7>เนื้อวัว(ก)</option>']
+    ['<option value=8>หมู-ขา(ก)</option>']
+    ['<option value=9>หมู-ตับ(ก)</option>']
+    ['<option value=10>หมู-ลิ้น(ก)</option>']
+    ['<option value=11>หมู-เลือด(ก)</option>']
+    ['<option value=12>หมู-สะโพก(ก)</option>']
+    ['<option value=13>หมู-สันคอ(ก)</option>']
+    ['<option value=14>หมู-สันนอก(ก)</option>']
+    ['<option value=15>หมู-สันใน(ก)</option>']
+    ['<option value=16>หมู-สับ(ก)</option>']
+    ['<option value=17>หมู-สามชั้น(ก)</option>']
+    ['<option value=18>หมู-หนัง(ก)</option>']
+    ['<option value=19>แหนม-หมู</option>']
+    ['<option value=20>กุ้ง(ก)</option>']
+    ['<option value=21>ปลา-แซลมอล-พุง(ก)</option>']
+    ['<option value=22>ปลา-ดุก(ก)</option>']
+    ['<option value=23>ปลา-ทู(ก)</option>']
+    ['<option value=24>ปลา-นิล(ก)</option>']
+    ['<option value=25>หมึก(ก)</option>']
+    ['<option value=26>หอย-แครง(ก)</option>']
+    ['<option value=27>หอย-เชลล์(ก)</option>']
+    ['<option value=28>หอย-นางรม(ก)</option>']
+    ['<option value=29>หอย-เป๋าฮือ(ก)</option>']
+    ['<option value=30>หอย-แมลงภู่(ก)</option>']
+    ['<option value=31>หอย-ลาย(ก)</option>']
+    ['<option value=32>ปลา-แซลมอน(ก)</option>']
+    ['<option value=33>ปลา-เค็ม(ก)</option>']
+    ['<option value=34>ปลา-เนื้ออ่อน</option>']
+    ['<option value=35>หอย-หวาน(ก)</option>']
+    ['<option value=36>ปลา-ไข่(ก)</option>']
+    ['<option value=37>กระเฉด(ก)</option>']
+    ['<option value=38>กระทิ(ก)</option>']
+    ['<option value=39>กระเพรา(ก)</option>']
+    ['<option value=40>กวางตุ้ง(ก)</option>']
+    ['<option value=41>กะหล่ำปี(ก)</option>']
+    ['<option value=42>เก็ดเข็มทอง(ก)</option>']
+    ['<option value=43>ขนมปัง(ผ)</option>']
+    ['<option value=44>ขนมปังโฮมฮวีด(ผ)</option>']
+    ['<option value=45>ข้าวสวย(ก)</option>']
+    ['<option value=46>ขิง(ก)</option>']
+    ['<option value=47>แคนตาลูป(ก)</option>']
+    ['<option value=48>ชะอม(ก)</option>']
+    ['<option value=49>ไชเท้า(ก)</option>']
+    ['<option value=50>ดอกกะหล่ำ(ก)</option>']
+    ['<option value=51>ต้นหอมโรง(ก)</option>']
+    ['<option value=52>แตงกวา(ก)</option>']
+    ['<option value=53>ถั่ว-ดำ(ก)</option>']
+    ['<option value=54>ถั่วพิตาชิโอ (ม)</option>']
+    ['<option value=55>บล็อคโคลี่(ก)</option>']
+    ['<option value=56>บลูเบอร์รี่(ก)</option>']
+    ['<option value=57>ผักกาดแก้ว(ก)</option>']
+    ['<option value=58>ผักกาดขาว(ก)</option>']
+    ['<option value=59>ผักกาดหอม(ก)</option>']
+    ['<option value=60>ผักโขม(ก)</option>']
+    ['<option value=61>ผักคอส(ก)</option>']
+    ['<option value=62>ผักคะน้า(ก)</option>']
+    ['<option value=63>ผักบุ้ง(ก)</option>']
+    ['<option value=64>พริก </option>']
+    ['<option value=65>พริกหยวกเขียว(ก)</option>']
+    ['<option value=66>มะเขือเทศ(ก)</option>']
+    ['<option value=67>มะเขือม่วง(ก)</option>']
+    ['<option value=68>มันฝรั่ง(ก)</option>']
+    ['<option value=69>มาม่า(ห)</option>']
+    ['<option value=70>แมคคาดาเมีย (ม)</option>']
+    ['<option value=71>วอลนัท  (ม)</option>']
+    ['<option value=72>สาหร่าย(ก)</option>']
+    ['<option value=73>หน่อไม้ฝรั่ง(ก)</option>']
+    ['<option value=74>หอมแดง(ก)</option>']
+    ['<option value=75>หอมใหญ่(ก)</option>']
+    ['<option value=76>หัวไชเท้า(ก)</option>']
+    ['<option value=77>เห็ด-ชิเมจิ(ก)</option>']
+    ['<option value=78>เห็ด-ฟาง(ก)</option>']
+    ['<option value=79>เห็ด-หอม(ก)</option>']
+    ['<option value=80>อะโวคาโด(ก)</option>']
+    ['<option value=81>อัลมอนด์ (ม)</option>']
+    ['<option value=82>แครอท (ก)</option>']
+    ['<option value=83>มันฝรั่ง (ก)</option>']
+    ['<option value=84>แกงกะหรี่(ก)</option>']
+    ['<option value=85>โกโก้(ก)</option>']
+    ['<option value=86>ครีมชีส(ก)</option>']
+    ['<option value=87>คอนแฟลก(ก)</option>']
+    ['<option value=88>โค๊ก(ก)</option>']
+    ['<option value=89>โค๊ก-ไดเอท(ก)</option>']
+    ['<option value=90>ชีส(ก)</option>']
+    ['<option value=91>ซอส-มะเขือเทศ/พริก(ช)</option>']
+    ['<option value=92>ซีอิ๊ว-ขาว(ช)</option>']
+    ['<option value=93>ซีอิ๊ว-ดำ(ช)</option>']
+    ['<option value=94>เต้าเจียว(ก)</option>']
+    ['<option value=95>นมข้นจืด(มล)</option>']
+    ['<option value=96>นมข้นหวาน(ก)</option>']
+    ['<option value=97>น้ำจิ้มซีฟูด(ช)</option>']
+    ['<option value=98>น้ำปลา-ทิพรส(ก)</option>']
+    ['<option value=99>น้ำพรกเผา(ก)</option>']
+    ['<option value=100>น้ำมันมะกอก(ช)</option>']
+    ['<option value=101>น้ำมันหอย(ช)</option>']
+    ['<option value=102>น้ำส้มสายชู(ช)</option>']
+    ['<option value=103>นูเทล่า(ก)</option>']
+    ['<option value=104>เนื้ยจืด(ก)</option>']
+    ['<option value=105>แป้งสาลี(ก)</option>']
+    ['<option value=106>โยเกิร์ต(ก)</option>']
+    ['<option value=107>วิปครีม-ไลท์(ก)</option>']
+    ['<option value=108>วิปครีม-เฮวี่(ก)</option>']
+    ['<option value=109>เส้น-ก๊วยจั๊บ(ก)</option>']
+    ['<option value=110>เส้น-มะกะโรนี(ก)</option>']
+    ['<option value=111>เส้น-เล็ก(ก)</option>']
+    ['<option value=112>เส้น-สปาเก็ตตี้(ก)</option>']
+    ['<option value=113>เส้น-หมี่(ก)</option>']
+    ['<option value=114>เส้น-ใหญ่(ก)</option>']
+    ['<option value=115>อีริทริทอล(ก)</option>']
+    ['<option value=116>ไอศกรีม(ก)</option>']
+  </select>
+
+  <br><br>
+  <label for="weight">enter Mass of thing:</label>
+  <input type="var" id="mass" name="mass"><br><br>
+
+
+
+<p id="result2"></p>
+
+<p id="result3"></p>
+
+<p id="result4"></p>
+
+  <br><br><br>
+  <button type="button" onclick="multiply();">Find CFNc</button>
+</form>
+
+<script>
+  var TB = [[16.0,13.0,20.0,6.0,13.0,13.0,6.0,25.0,20.0,21.0,16.3,7.0,22.0,17.0,20.0,26.0,23.0,9.0,21.0,23.0,24.0,20.0,20.0,16.0,20.0,15.0,14.7,20.0,9.0,20.0,27.0,10.0,18.0,18.5,14.0,18.0,11.0,0.0,2.3,0.0,0.0,0.0,3.0,250.0,500.0,2.7,1.8,0.8,0.0,0.0,0.0,0.0,0.0,22.0,0.2,0.0,0.7,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,2.0,400.0,100.0,20.0,5.0,0.0,0.0,0.0,0.6,0.0,0.0,0.0,2.0,0.2,0.9,2.0,1.0,10.0,5.9,7.0,0.0,0.0,6.71,0.0,50.0,0.0,90.0,6.8,8.0,0.0,2.0,0.5,0.0,20.0,0.0,5.4,0.0,10.3,6.0,2.2,2.1,6.0,6.0,6.0,6.0,7.0,2.5,0.0,3.2,]
+    ,[17.0,32.0,9.0,5.0,14.0,10.0,3.0,15.0,12.0,4.0,17.2,0.0,17.0,16.0,13.0,3.0,34.0,53.0,35.0,2.6,3.0,16.0,2.4,6.0,2.0,1.4,1.0,4.0,13.0,7.0,4.5,0.5,5.0,25.1,2.0,5.0,1.0,0.0,24.0,0.0,0.0,0.0,0.0,130.0,300.0,0.3,0.8,0.2,0.0,0.0,0.0,0.0,0.0,2.0,0.5,0.0,0.3,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.1,300.0,70.0,0.0,0.0,0.0,0.0,0.0,0.1,0.0,0.0,0.0,15.0,0.5,0.2,0.1,7.0,9.0,4.1,0.8,0.0,0.0,13.29,0.0,0.0,0.0,8050.0,7.6,9.0,0.0,0.0,3.5,15000.0,0.0,0.0,32.0,13.7,73.6,4.5,30.9,37.0,0.2,1.0,0.6,1.0,1.0,1.3,0.0,26.7,]
+    ,[0.0,0.0,0.0,0.0,1.5,2.0,3.0,0.0,0.0,0.0,0.0,2.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,33.0,2.0,0.0,0.0,0.0,0.0,3.0,3.6,0.0,12.0,11.0,7.0,5.0,0.0,0.0,0.0,6.0,3.0,3.0,3.8,1.0,3.0,3.0,7.0,1150.0,2800.0,28.0,15.8,7.3,3.0,3.0,3.0,5.0,3.0,25.0,0.2,4.0,14.5,1.5,3.0,1.0,1.5,1.0,1.5,1.0,2.0,3.0,3.0,3.0,16.2,4200.0,0.0,100.0,30.0,2.0,14.0,9.0,2.5,7.0,2.0,4.0,2.0,0.1,7.2,16.2,7.0,27.0,34.2,82.4,33.0,1.0,6.83,4.0,50.0,900.0,90.0,10.0,54.0,2.0,1.0,10.0,0.0,190.0,10.0,54.0,0.0,1.0,24.0,3.0,2.8,88.0,75.0,80.2,75.0,81.0,27.5,5.0,8.4,]]
+
+  const select = document.querySelector("#dropbox");
+  const output = document.querySelector("#output");
+  function calculateBMI() {
+    var weight = document.getElementById("weight").value;
+    var height = document.getElementById("height").value;
+    var bmi = weight / (height/100 * height/100);
+    document.getElementById("result").innerHTML = "Your BMI is " + bmi.toFixed(2);
+  }
+  function multiply() {
+    var mass = document.getElementById("mass").value;
+    var selectedValue = document.getElementById("dropbox").value;
+    // var result = 4 * selectedValue * 5;
+    var CFNc=[((TB[0][selectedValue])*mass)/100,((TB[1][selectedValue])*mass)/100,((TB[2][selectedValue])*mass)/100];
+    document.getElementById("result2").innerHTML = "ค่าโปรตีน = " + CFNc[0].toFixed(2);
+    document.getElementById("result3").innerHTML = "ค่าไขมัน = " + CFNc[1].toFixed(2);
+    document.getElementById("result4").innerHTML = "ค่าคาร์บ = " + CFNc[2].toFixed(2);
+  }
+</script>
+</body>
+</html>
